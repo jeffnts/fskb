@@ -26,6 +26,7 @@ import { BgColorFeatureClient as BgColorFeatureClient_bdd62b616b227465b00e7faff4
 import { HighlightColorFeatureClient as HighlightColorFeatureClient_bdd62b616b227465b00e7faff4bdc6d8 } from 'payloadcms-lexical-ext/client'
 import { TextColorFeatureClient as TextColorFeatureClient_bdd62b616b227465b00e7faff4bdc6d8 } from 'payloadcms-lexical-ext/client'
 import { YoutubeFeatureClient as YoutubeFeatureClient_bdd62b616b227465b00e7faff4bdc6d8 } from 'payloadcms-lexical-ext/client'
+import { VercelBlobClientUploadHandler as VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e } from '@payloadcms/storage-vercel-blob/client'
 
 export const importMap = {
   "@payloadcms/richtext-lexical/rsc#RscEntryLexicalCell": RscEntryLexicalCell_44fe37237e0ebf4470c9990d8cb7b07e,
@@ -55,5 +56,6 @@ export const importMap = {
   "payloadcms-lexical-ext/client#BgColorFeatureClient": BgColorFeatureClient_bdd62b616b227465b00e7faff4bdc6d8,
   "payloadcms-lexical-ext/client#HighlightColorFeatureClient": HighlightColorFeatureClient_bdd62b616b227465b00e7faff4bdc6d8,
   "payloadcms-lexical-ext/client#TextColorFeatureClient": TextColorFeatureClient_bdd62b616b227465b00e7faff4bdc6d8,
-  "payloadcms-lexical-ext/client#YoutubeFeatureClient": YoutubeFeatureClient_bdd62b616b227465b00e7faff4bdc6d8
+  "payloadcms-lexical-ext/client#YoutubeFeatureClient": YoutubeFeatureClient_bdd62b616b227465b00e7faff4bdc6d8,
+  "@payloadcms/storage-vercel-blob/client#VercelBlobClientUploadHandler": VercelBlobClientUploadHandler_16c82c5e25f430251a3e3ba57219ff4e
 }

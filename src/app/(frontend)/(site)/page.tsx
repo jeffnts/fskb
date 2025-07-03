@@ -4,9 +4,11 @@ import HomePageSection from '@/components/home-page-section'
 import NewsCard from '@/components/news-card'
 import ContactForm from '@/sections/contact/contact-form'
 import { getNews } from '@/actions/news'
+import { getEvents } from '@/actions/events'
 
 export default async function SiteHomePage() {
-  const news = await getNews({ limit: 5 })
+  const news = await getNews({ limit: 6 })
+  const events = await getEvents({ limit: 6 })
 
   return (
     <main>
@@ -35,7 +37,7 @@ export default async function SiteHomePage() {
       </HomePageSection>
 
       <HomePageSection
-        isVisible={false}
+        isVisible={!!events.docs?.length}
         title="Próximos Eventos"
         description="Confira os próximos campeonatos, seminários e eventos da FSKB"
         button={{

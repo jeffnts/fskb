@@ -69,6 +69,7 @@ export interface Config {
   collections: {
     tags: Tag;
     news: News;
+    events: Event;
     users: User;
     media: Media;
     'payload-locked-documents': PayloadLockedDocument;
@@ -79,6 +80,7 @@ export interface Config {
   collectionsSelect: {
     tags: TagsSelect<false> | TagsSelect<true>;
     news: NewsSelect<false> | NewsSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -180,6 +182,35 @@ export interface Media {
   focalY?: number | null;
 }
 /**
+ * Gerencie as notícias do site
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
+  id: number;
+  title: string;
+  slug: string;
+  image?: (number | null) | Media;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
@@ -217,6 +248,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'news';
         value: number | News;
+      } | null)
+    | ({
+        relationTo: 'events';
+        value: number | Event;
       } | null)
     | ({
         relationTo: 'users';
@@ -286,6 +321,18 @@ export interface NewsSelect<T extends boolean = true> {
   subtitle?: T;
   slug?: T;
   tags?: T;
+  image?: T;
+  content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
   image?: T;
   content?: T;
   updatedAt?: T;
