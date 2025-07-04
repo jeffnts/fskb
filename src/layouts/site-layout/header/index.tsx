@@ -119,6 +119,8 @@ export default function Header() {
               />
             </Link>
 
+            <p className="text-lg lg:hidden font-bold text-blue-200 tracking-wide">FSKB</p>
+
             {/* Menu Horizontal Compacto - Desktop */}
             <nav className="hidden lg:flex items-center space-x-6">
               {homePageMenuItems.map((item) => (
